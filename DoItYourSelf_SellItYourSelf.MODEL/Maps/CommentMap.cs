@@ -15,7 +15,7 @@ namespace DoItYourSelf_SellItYourSelf.MODEL.Maps
             builder.ToTable("Comments");
             builder.Property(x => x.CommentTitle).HasMaxLength(50).IsRequired(true);
             builder.Property(x => x.CommentText).HasMaxLength(255).IsRequired(true);
-            builder.Property(x => x.Score).IsRequired(false);
+            builder.Property(x => x.Score).IsRequired(true);
 
 
             base.Configure(builder);

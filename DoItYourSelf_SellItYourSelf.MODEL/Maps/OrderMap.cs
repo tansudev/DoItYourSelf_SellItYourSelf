@@ -16,7 +16,7 @@ namespace DoItYourSelf_SellItYourSelf.MODEL.Maps
             builder.Property(x => x.TotalAmounth).IsRequired(true);
             builder.Property(x => x.TotalPiece).IsRequired(true);
             builder.Property(x => x.Discount).IsRequired(false);
-            builder.Property(x => x.OrderDate).IsRequired(true);
+            builder.Property(x => x.OrderDate).IsRequired(false);
 
             base.Configure(builder);
 

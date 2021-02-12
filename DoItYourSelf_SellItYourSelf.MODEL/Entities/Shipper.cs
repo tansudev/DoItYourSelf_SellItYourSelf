@@ -10,6 +10,5 @@ namespace DoItYourSelf_SellItYourSelf.MODEL.Entities
         public string ShipperName { get; set; }
         public string Phone { get; set; }
 
-        public virtual Order Order { get; set; }
     }
 }

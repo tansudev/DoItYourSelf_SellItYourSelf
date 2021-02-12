@@ -11,6 +11,6 @@ namespace DoItYourSelf_SellItYourSelf.MODEL.Entities
         public string TagDescription { get; set; }
         public string TagImageUrl { get; set; }
 
-        public virtual List<Post> Posts { get; set; }
+        public List<PostTag> PostTags { get; set; }
     }
 }

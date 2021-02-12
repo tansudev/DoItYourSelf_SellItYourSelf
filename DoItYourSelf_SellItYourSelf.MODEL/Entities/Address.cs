@@ -16,6 +16,5 @@ namespace DoItYourSelf_SellItYourSelf.MODEL.Entities
 
         public Guid UserID { get; set; }
         public virtual User User { get; set; }
-        public virtual Order Order{ get; set; }
     }
 }

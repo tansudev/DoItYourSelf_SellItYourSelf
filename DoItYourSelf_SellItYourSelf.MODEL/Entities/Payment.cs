@@ -12,7 +12,6 @@ namespace DoItYourSelf_SellItYourSelf.MODEL.Entities
         public DateTime? ExpirationDate { get; set; }
         public int Cvc { get; set; }
 
-        public virtual Order Order { get; set; }
 
     }
 }
