@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DoItYourSelf_SellItYourSelf.CORE\DoItYourSelf_SellItYourSelf.CORE.csproj" />
+    <ProjectReference Include="..\DoItYourSelf_SellItYourSelf.MODEL\DoItYourSelf_SellItYourSelf.MODEL.csproj" />
+  </ItemGroup>
+
 </Project>
