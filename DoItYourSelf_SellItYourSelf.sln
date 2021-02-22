@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoItYourSelf_SellItYourSelf.UI", "DoItYourSelf_SellItYourSelf\DoItYourSelf_SellItYourSelf.UI.csproj", "{2D7A472D-2F6B-417E-A107-F76490F9F302}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoItYourSelf_SellItYourSelf.UI", "DoItYourSelf_SellItYourSelf\DoItYourSelf_SellItYourSelf.UI.csproj", "{2D7A472D-2F6B-417E-A107-F76490F9F302}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoItYourSelf_SellItYourSelf.CORE", "DoItYourSelf_SellItYourSelf.CORE\DoItYourSelf_SellItYourSelf.CORE.csproj", "{D7E8D755-C4BA-4482-BD00-5E2215088C08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoItYourSelf_SellItYourSelf.CORE", "DoItYourSelf_SellItYourSelf.CORE\DoItYourSelf_SellItYourSelf.CORE.csproj", "{D7E8D755-C4BA-4482-BD00-5E2215088C08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoItYourSelf_SellItYourSelf.MODEL", "DoItYourSelf_SellItYourSelf.MODEL\DoItYourSelf_SellItYourSelf.MODEL.csproj", "{6D38E314-A7ED-4D55-8C12-A884F9B422F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoItYourSelf_SellItYourSelf.MODEL", "DoItYourSelf_SellItYourSelf.MODEL\DoItYourSelf_SellItYourSelf.MODEL.csproj", "{6D38E314-A7ED-4D55-8C12-A884F9B422F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoItYourSelf_SellItYourSelf.SERVİCE", "DoItYourSelf_SellItYourSelf.SERVİCE\DoItYourSelf_SellItYourSelf.SERVİCE.csproj", "{5A09439C-0EF6-4B60-B817-FF16A0CF5F0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoItYourSelf_SellItYourSelf.SERVİCE", "DoItYourSelf_SellItYourSelf.SERVİCE\DoItYourSelf_SellItYourSelf.SERVİCE.csproj", "{5A09439C-0EF6-4B60-B817-FF16A0CF5F0E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

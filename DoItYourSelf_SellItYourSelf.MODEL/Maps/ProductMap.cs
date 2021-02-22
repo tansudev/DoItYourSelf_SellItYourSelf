@@ -15,7 +15,7 @@ namespace DoItYourSelf_SellItYourSelf.MODEL.Maps
             builder.ToTable("Products");
             builder.Property(x => x.ProductName).HasMaxLength(100).IsRequired(true);
             builder.Property(x => x.Description).HasMaxLength(255).IsRequired(false);
-            builder.Property(x => x.Price).IsRequired(true);
+            builder.Property(x => x.Price).HasColumnType("money").IsRequired(true);
             builder.Property(x => x.Discount).IsRequired(false);
             builder.Property(x => x.Size).HasMaxLength(5).IsRequired(true);
             builder.Property(x => x.Color).HasMaxLength(20).IsRequired(false);
