@@ -44,7 +44,7 @@ namespace DoItYourSelf_SellItYourSelf.MODEL.Context
         //ConnectionString is writing in OnConfiguring Method for SqlServer
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=.; database=DIYSIYProject; uid=sa; pwd=123;");
+            optionsBuilder.UseSqlServer("server=.; database=DIYSIYBlog; uid=sa; pwd=123;");
             base.OnConfiguring(optionsBuilder);
         }
 

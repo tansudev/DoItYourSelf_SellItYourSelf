@@ -10,17 +10,20 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using DoItYourSelf_SellItYourSelf.CORE.Service;
+using DoItYourSelf_SellItYourSelf.SERVÝCE.Base;
 
 namespace DoItYourSelf_SellItYourSelf
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
         // This method gets called by the runtime. Use this method to add 
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
-        public IConfiguration Configuration { get; }
+        
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -28,11 +31,19 @@ namespace DoItYourSelf_SellItYourSelf
             services.AddControllersWithViews();
             //services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
 
+            //Defined to use our database connection in each module
             services.AddDbContext<DIYSIYContext>(options =>
             {
-                options.UseSqlServer("server=.; database=DIYSIYProject; uid=sa; pwd=123;");
+                options.UseSqlServer("server=.; database=DIYSIYBlog; uid=sa; pwd=123;");
                 options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             });
+
+            
+            //The AddScoped method registers the service with a scoped lifetime, the lifetime of a single request.
+            services.AddScoped(typeof(ICoreService<>), typeof(BaseService<>));
+            //services.AddTransient(typeof(ICoreService<>), typeof(BaseService<>));
+            //services.AddSingleton(typeof(ICoreService<>), typeof(BaseService<>));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

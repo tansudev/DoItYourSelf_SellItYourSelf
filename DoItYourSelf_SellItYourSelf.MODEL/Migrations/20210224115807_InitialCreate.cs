@@ -304,7 +304,7 @@ namespace DoItYourSelf_SellItYourSelf.MODEL.Migrations
                         column: x => x.PostID,
                         principalTable: "Posts",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Products_Users_UserID",
                         column: x => x.UserID,
@@ -352,7 +352,7 @@ namespace DoItYourSelf_SellItYourSelf.MODEL.Migrations
                         column: x => x.UserID,
                         principalTable: "Users",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -369,8 +369,8 @@ namespace DoItYourSelf_SellItYourSelf.MODEL.Migrations
                     UpdatedIP = table.Column<string>(maxLength: 15, nullable: true),
                     ImageURL = table.Column<string>(maxLength: 255, nullable: false),
                     Title = table.Column<string>(maxLength: 100, nullable: false),
-                    PostID = table.Column<Guid>(nullable: false),
-                    ProductID = table.Column<Guid>(nullable: false)
+                    PostID = table.Column<Guid>(nullable: true),
+                    ProductID = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -380,13 +380,13 @@ namespace DoItYourSelf_SellItYourSelf.MODEL.Migrations
                         column: x => x.PostID,
                         principalTable: "Posts",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Images_Products_ProductID",
                         column: x => x.ProductID,
                         principalTable: "Products",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(

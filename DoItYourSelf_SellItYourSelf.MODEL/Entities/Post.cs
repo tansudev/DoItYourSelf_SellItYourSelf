@@ -17,6 +17,7 @@ namespace DoItYourSelf_SellItYourSelf.MODEL.Entities
         public virtual User User { get; set; }
         public Guid CategoryID { get; set; }
         public virtual Category Category { get; set; }
+
         public virtual List<Product> Products { get; set; }
         public virtual List<Image> Images { get; set; }
         public virtual List<Comment> Comments { get; set; }

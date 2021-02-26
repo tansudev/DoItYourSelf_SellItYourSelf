@@ -11,7 +11,7 @@ using System.Transactions;
 
 namespace DoItYourSelf_SellItYourSelf.SERVİCE.Base
 { 
-    class BaseService<T> : ICoreService<T> where T : CoreEntity
+    public class BaseService<T> : ICoreService<T> where T : CoreEntity
     {
         //instance constructor, It is a method of a class that executes when the class's objects are created
         private readonly DIYSIYContext context;

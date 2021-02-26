@@ -4,14 +4,16 @@ using DoItYourSelf_SellItYourSelf.MODEL.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DoItYourSelf_SellItYourSelf.MODEL.Migrations
 {
     [DbContext(typeof(DIYSIYContext))]
-    partial class DIYSIYContextModelSnapshot : ModelSnapshot
+    [Migration("20210224230901_ImageChanges")]
+    partial class ImageChanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

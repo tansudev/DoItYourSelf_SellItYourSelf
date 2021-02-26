@@ -16,7 +16,6 @@ namespace DoItYourSelf_SellItYourSelf.MODEL.Maps
             builder.ToTable("Images");
             builder.Property(x => x.ImageURL).HasMaxLength(255).IsRequired(true);
             builder.Property(x => x.Title).HasMaxLength(100).IsRequired(true);
-
             base.Configure(builder);
         }
     }

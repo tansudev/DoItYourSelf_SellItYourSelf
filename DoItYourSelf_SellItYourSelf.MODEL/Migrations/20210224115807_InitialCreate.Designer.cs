@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DoItYourSelf_SellItYourSelf.MODEL.Migrations
 {
     [DbContext(typeof(DIYSIYContext))]
-    [Migration("20210214224844_InitialCreate")]
+    [Migration("20210224115807_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -226,10 +226,10 @@ namespace DoItYourSelf_SellItYourSelf.MODEL.Migrations
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
 
-                    b.Property<Guid>("PostID")
+                    b.Property<Guid?>("PostID")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ProductID")
+                    b.Property<Guid?>("ProductID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Status")
@@ -744,17 +744,13 @@ namespace DoItYourSelf_SellItYourSelf.MODEL.Migrations
 
             modelBuilder.Entity("DoItYourSelf_SellItYourSelf.MODEL.Entities.Image", b =>
                 {
-                    b.HasOne("DoItYourSelf_SellItYourSelf.MODEL.Entities.Post", "Post")
+                    b.HasOne("DoItYourSelf_SellItYourSelf.MODEL.Entities.Post", null)
                         .WithMany("Images")
-                        .HasForeignKey("PostID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PostID");
 
-                    b.HasOne("DoItYourSelf_SellItYourSelf.MODEL.Entities.Product", "Product")
+                    b.HasOne("DoItYourSelf_SellItYourSelf.MODEL.Entities.Product", null)
                         .WithMany("Images")
-                        .HasForeignKey("ProductID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductID");
                 });
 
             modelBuilder.Entity("DoItYourSelf_SellItYourSelf.MODEL.Entities.Order", b =>

@@ -10,11 +10,16 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DoItYourSelf_SellItYourSelf.MODEL\DoItYourSelf_SellItYourSelf.MODEL.csproj" />
     <ProjectReference Include="..\DoItYourSelf_SellItYourSelf.SERVİCE\DoItYourSelf_SellItYourSelf.SERVİCE.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\site\ProfilPic\" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="https://json.schemastore.org/bundleconfig" /></VisualStudio></ProjectExtensions>
