@@ -14,6 +14,8 @@ using DoItYourSelf_SellItYourSelf.CORE.Service;
 using DoItYourSelf_SellItYourSelf.SERVÝCE.Base;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace DoItYourSelf_SellItYourSelf
 {
@@ -30,6 +32,7 @@ namespace DoItYourSelf_SellItYourSelf
         {
             services.AddControllersWithViews();
             services.AddRazorPages();
+
             services.Configure<CookiePolicyOptions>(options =>
             {
 
@@ -49,7 +52,16 @@ namespace DoItYourSelf_SellItYourSelf
             //services.AddTransient(typeof(ICoreService<>), typeof(BaseService<>));
             //services.AddSingleton(typeof(ICoreService<>), typeof(BaseService<>));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(option => { option.LoginPath = "/Login/LoginPage"; });
+            //Authentication configurations
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(option => {
+                option.Cookie.Name = "UserLoginCookie";
+                option.LoginPath = "/Login/LoginPage"; });
+            //Authorization configuration role ýnfo take from ClaimTypes.Role as string 
+            services.AddAuthorization(option =>
+            {
+                var userAuthPolicyBuilder = new AuthorizationPolicyBuilder();
+                option.DefaultPolicy = userAuthPolicyBuilder.RequireAuthenticatedUser().RequireClaim(ClaimTypes.Role).Build();
+            });
 
         }
 
@@ -68,12 +80,13 @@ namespace DoItYourSelf_SellItYourSelf
             
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseRouting();
             app.UseHttpsRedirection();
-            app.UseRouting(); 
             //Who you are?
             app.UseAuthentication();
             //Are you allowed?
             app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {

@@ -11,11 +11,12 @@ namespace DoItYourSelf_SellItYourSelf.UI.Areas.Administrator.Controllers
     public class HomeController : Controller
     {
         
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             return View();
         }
+
 
         [Authorize]
         public IActionResult AdminPage()
