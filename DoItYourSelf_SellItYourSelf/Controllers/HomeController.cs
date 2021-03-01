@@ -12,7 +12,7 @@ namespace DoItYourSelf_SellItYourSelf.UI.Controllers
     {
         private readonly ICoreService<Post> ps;
         private readonly ICoreService<Image> img;
-        public HomeController(ICoreService<Post> _ps, ICoreService<Image> _img)
+        public HomeController(ICoreService<Post> _ps, ICoreService<Image> _img) 
         {
             ps = _ps;
             img = _img;

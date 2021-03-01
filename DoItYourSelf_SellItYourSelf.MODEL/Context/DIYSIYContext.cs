@@ -27,6 +27,7 @@ namespace DoItYourSelf_SellItYourSelf.MODEL.Context
             modelBuilder.ApplyConfiguration(new PaymentMap());
             modelBuilder.ApplyConfiguration(new PostMap());
             modelBuilder.ApplyConfiguration(new ProductMap());
+            modelBuilder.ApplyConfiguration(new RoleMap());
             modelBuilder.ApplyConfiguration(new ShipperMap());
             modelBuilder.ApplyConfiguration(new TagMap());
             modelBuilder.ApplyConfiguration(new UserMap());
@@ -57,6 +58,7 @@ namespace DoItYourSelf_SellItYourSelf.MODEL.Context
         public DbSet<Post> Posts { get; set; }
         public DbSet<PostTag> PostTags { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Role> Roles { get; set; }
         public DbSet<Shipper> Shippers { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<User> Users { get; set; }

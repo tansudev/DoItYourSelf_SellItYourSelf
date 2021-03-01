@@ -17,6 +17,7 @@ namespace DoItYourSelf_SellItYourSelf.MODEL.Entities
         public string Phone { get; set; }
         public string AccountInfo { get; set; }
 
+        public virtual Role Role { get; set; }
         public virtual List<Address> Addresses { get; set; }
         public virtual List<Post> Posts{ get; set; }
         public virtual List<Order> Orders { get; set; }

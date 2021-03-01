@@ -12,24 +12,30 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using DoItYourSelf_SellItYourSelf.CORE.Service;
 using DoItYourSelf_SellItYourSelf.SERVÝCE.Base;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 
 namespace DoItYourSelf_SellItYourSelf
 {
     public class Startup
     {
-        public IConfiguration Configuration { get; }
-        // This method gets called by the runtime. Use this method to add 
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
-        
+        public IConfiguration Configuration { get; }
+        // This method gets called by the runtime. Use this method to add 
 
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllersWithViews();
-            //services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            services.AddRazorPages();
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
 
             //Defined to use our database connection in each module
             services.AddDbContext<DIYSIYContext>(options =>
@@ -37,12 +43,13 @@ namespace DoItYourSelf_SellItYourSelf
                 options.UseSqlServer("server=.; database=DIYSIYBlog; uid=sa; pwd=123;");
                 options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             });
-
-            
+  
             //The AddScoped method registers the service with a scoped lifetime, the lifetime of a single request.
             services.AddScoped(typeof(ICoreService<>), typeof(BaseService<>));
             //services.AddTransient(typeof(ICoreService<>), typeof(BaseService<>));
             //services.AddSingleton(typeof(ICoreService<>), typeof(BaseService<>));
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(option => { option.LoginPath = "/Login/LoginPage"; });
 
         }
 
@@ -60,14 +67,23 @@ namespace DoItYourSelf_SellItYourSelf
             }
             
             app.UseStaticFiles();
-            app.UseRouting();
+            app.UseCookiePolicy();
+            app.UseHttpsRedirection();
+            app.UseRouting(); 
+            //Who you are?
+            app.UseAuthentication();
+            //Are you allowed?
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                   name: "area",
+                   pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+               
+                endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");   
             });
 
         }
