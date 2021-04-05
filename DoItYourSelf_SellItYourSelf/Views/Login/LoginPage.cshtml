@@ -1,142 +1,69 @@
 ﻿@model User
 @{
-    Layout = null;
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Login</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!--Font family Css-->
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-    <link href="~/site/homepage/css/owl.carousel.css" rel="stylesheet" type="text/css" />
-    <link href="~/site/homepage/css/owl.theme.default.css" rel="stylesheet" type="text/css" />
-    <!-- Additional Bootstrap CSS -->
-    <link href="~/site/homepage/css/style_1.css" rel="stylesheet" type="text/css" />
-    <!-- Modernizr JS -->
-    <script src="~/site/homepage/js/modernizr-3.5.0.min.js"></script>
 
-</head>
-<body>
-    <!-- main page layout heead bar "Welcome" and date -->
-    <div class="container-fluid fh5co_header_bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-12  ">
-                    <div class="d-inline-block fh5co_padding_menu">
-                        <img src="~/site/homepage/images/sheepicon.png" alt="img" width="32" />
-                        <a class="treding_btn text-center" asp-controller="Home" asp-action="Index">Home Page</a>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="container">
+    <div class="d-flex justify-content-center h-120">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">Sign In</h3>
+                <div class="d-flex justify-content-end social_icon">
+                    <span><i class="p-1 fa fa-facebook-square" style="font-size:36px;color: #f5bc04"></i></span>
+                    <span><i class="p-1 fa fa-google-plus-square" style="font-size:36px;color: #f5bc04"></i></span>
+                    <span>
+                        <i class="p-1 fa fa-twitter-square" style=" font-size: 36px;color: #f5bc04"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="card-body">
+                <form asp-controller="Login" asp-action="LoginPage" method="post">
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-user"></i></span>
+                        </div>
+                        <input class="form-control" type="text" asp-for="Email" placeholder="Email">
+
                     </div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-key"></i></span>
+                        </div>
+                        <input class="form-control" type="password" asp-for="Password" placeholder="password">
+                    </div>
+                    <div class="row align-items-center remember">
+                        <input type="checkbox">&ensp; Remember Me
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Login" class="btn float-right login_btn">
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <div class="d-flex justify-content-center links">
+                    Don't have an account? &ensp;<a href="#"> Sign Up</a>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <a href="#">Forgot your password?</a>
                 </div>
             </div>
         </div>
     </div>
-
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <div class="container">
-        <div class="d-flex justify-content-center h-120">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="text-center">Sign In</h3>
-                    <div class="d-flex justify-content-end social_icon">
-                        <span><i class="p-1 fa fa-facebook-square" style="font-size:36px;color: #f5bc04"></i></span>
-                        <span><i class="p-1 fa fa-google-plus-square" style="font-size:36px;color: #f5bc04"></i></span>
-                        <span>
-                            <i class="p-1 fa fa-twitter-square" style=" font-size: 36px;color: #f5bc04"></i>
-                        </span>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <form asp-controller="Login" asp-action="LoginPage" method="post">
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fa fa-user"></i></span>
-                            </div>
-                            <input class="form-control" type="text" asp-for="Email" placeholder="Email">
-
-                        </div>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fa fa-key"></i></span>
-                            </div>
-                            <input class="form-control" type="password" asp-for="Password" placeholder="password">
-                        </div>
-                        <div class="row align-items-center remember">
-                            <input type="checkbox">&ensp; Remember Me
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Login" class="btn float-right login_btn">
-                        </div>
-                    </form>
-                </div>
-                <div class="card-footer">
-                    <div class="d-flex justify-content-center links">
-                        Don't have an account? &ensp;<a href="#"> Sign Up</a>
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <a href="#">Forgot your password?</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-
-    <!--Footer-->
-    <footer>
-        <div class="container-fluid fh5co_footer_bg pb-3">
-            <div class="container animate-box">
-                <div class="row">
-                    <div class="col-12 spdp_right py-5">
-                        <img src="~/site/homepage/images/sheepicon.png" alt="img" class="footer_logo" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid fh5co_footer_right_reserved">
-            <div class="container">
-                <div class="row  ">
-                    <div class="col-12 col-md-6 py-4 Reserved"> © Copyright 2021, All rights reserved. Design by Tansu. </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="~/site/homepage/js/owl.carousel.min.js"></script>
-    <!--<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-            integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-            crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
-            integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-            crossorigin="anonymous"></script>
-    <!-- Waypoints -->
-    <script src="~/site/homepage/js/jquery.waypoints.min.js"></script>
-    <!-- Main -->
-    @*<script src="~/site/homepage/js/main.js"></script>*@
-    <!------ Include the above in your HEAD tag ---------->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</body>
-
-</html>
-
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
 
