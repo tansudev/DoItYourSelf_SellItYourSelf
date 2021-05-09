@@ -40,15 +40,14 @@ namespace DoItYourSelf_SellItYourSelf.UI.Controllers
                     new Claim(ClaimTypes.Name, logged.Name),
                     new Claim(ClaimTypes.Surname, logged.Surname),
                     new Claim(ClaimTypes.Email, logged.Email),
-                    new Claim(ClaimTypes.Role, RoleName)
-                   
+                    new Claim(ClaimTypes.Role, RoleName)         
                 };
 
                 var userIdentity = new ClaimsIdentity(DIYclaims, "login");
                 ClaimsPrincipal userprincipal = new ClaimsPrincipal(new[] { userIdentity });
 
                 await HttpContext.SignInAsync(userprincipal);
-                return RedirectToAction("AdminPage","Home", new { area = "Administrator" });
+                return RedirectToAction("Index", "Home", new { area = "Administrator" });
                 //return RedirectToPage("Index","Home", new { area = "Administrator" });
                 
             }
