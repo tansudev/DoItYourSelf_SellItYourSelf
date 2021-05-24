@@ -21,7 +21,6 @@
   <ItemGroup>
     <Folder Include="Areas\Administrator\Data\" />
     <Folder Include="Areas\Administrator\Models\" />
-    <Folder Include="wwwroot\site\Admin\" />
     <Folder Include="wwwroot\site\ProfilPic\" />
   </ItemGroup>
 

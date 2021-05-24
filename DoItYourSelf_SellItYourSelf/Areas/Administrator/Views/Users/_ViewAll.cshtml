@@ -1,0 +1,63 @@
+﻿@model IEnumerable<DoItYourSelf_SellItYourSelf.MODEL.Entities.User>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div class="col-md-8 offset-md-2">
+
+    <h1 class="text-center"><i class=""></i>All Users</h1>
+
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Surname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Birthdate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AccountInfo)
+                </th>
+                <th>
+                    <a onclick="showInPopup('@Url.Action("UserAct","Users",new {id=Guid.Empty},Context.Request.Scheme)','Add User')" class="btn btn-success text-white">New User</a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Surname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Birthdate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AccountInfo)
+                    </td>
+                    <td>
+                        <div>
+                            <a onclick="showInPopup('@Url.Action("UserAct","Users",new {id=item.ID},Context.Request.Scheme)','Update User')" class="btn btn-info "><i class="fas fa-pencil-alt"></i> Edit</a>
+                            <form asp-action="Delete" asp-route-id="@item.ID" onsubmit="return jQueryAjaxDelete(this)" class="d-inline">
+                                <input type="hidden" asp-for="@item.ID" />
+                                <input type="submit" value="Delete" class="btn btn-danger" />
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                }
+        </tbody>
+    </table>
+</div>

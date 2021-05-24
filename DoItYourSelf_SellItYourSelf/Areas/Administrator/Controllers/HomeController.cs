@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace DoItYourSelf_SellItYourSelf.UI.Areas.Administrator.Controllers
 {
     [Area("Administrator")]  
-    [Route("{Area}/")]
+    [Route("{Area}/{Controller}")]
     public class HomeController : Controller
     {
         readonly ICoreService<Category> _ct; 
@@ -28,7 +28,7 @@ namespace DoItYourSelf_SellItYourSelf.UI.Areas.Administrator.Controllers
             return View();
         }
 
-
+        [Route("Logout")]
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();

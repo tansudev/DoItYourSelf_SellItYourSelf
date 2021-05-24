@@ -47,11 +47,27 @@ namespace DoItYourSelf_SellItYourSelf.UI.Controllers
                 ClaimsPrincipal userprincipal = new ClaimsPrincipal(new[] { userIdentity });
 
                 await HttpContext.SignInAsync(userprincipal);
-                return RedirectToAction("Index", "Home", new { area = "Administrator" });
+
+                if (RoleName =="Admin")
+                {
+                    return RedirectToAction("Index", "Home", new { area = "Administrator" });
+                }
+                else
+                {
+                    return RedirectToAction("MemberPage", "Member");
+                }
+             
                 //return RedirectToPage("Index","Home", new { area = "Administrator" });
                 
             }
             return View(user);
+        }
+
+        [Route("Logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
     }
 }

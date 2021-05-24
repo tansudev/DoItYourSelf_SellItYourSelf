@@ -20,4 +20,5 @@
 			$("#selectAll").prop("checked", false);
 		}
 	});
+
 });
